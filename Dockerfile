@@ -1,5 +1,5 @@
 # Build stage
-FROM node:16.11.1-alpine3.14 as build
+FROM node:16.13.1-alpine3.15 as build
 
 RUN apk add --update --no-cache \
     curl \
@@ -19,7 +19,7 @@ RUN NODE_OPTIONS="--max-old-space-size=2048" yarn build
 RUN npm prune --production
 
 # Final image
-FROM node:16.11.1-alpine3.14
+FROM node:16.13.1-alpine3.15
 
 ARG UID=1001
 ARG GID=1001
